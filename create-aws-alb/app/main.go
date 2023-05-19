@@ -45,6 +45,8 @@ func main( ) {
 		},
 	)
 
+	log.Print("Appliation is running...")
+
 	if err := errGroup.Wait( ); err != nil {
 		log.Fatal(err)
 	}
