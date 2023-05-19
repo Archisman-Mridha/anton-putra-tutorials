@@ -13,13 +13,17 @@ resource "aws_autoscaling_group" "this" {
 
   health_check_type = "EC2"
 
-  // Enables automatic scaling
+  // Registering this autoscaling group as the target for the ALB.
   target_group_arns = [ aws_lb_target_group.app.arn ]
 
   mixed_instances_policy {
     launch_template {
       launch_template_specification {
         launch_template_id = aws_launch_template.this.id
+      }
+
+      override {
+        instance_type = var.aws_instance_type
       }
     }
   }
@@ -29,6 +33,8 @@ resource "aws_autoscaling_group" "this" {
 // cross 25%, then spin up new EC2 machines inside the autoscaling
 // group.
 resource "aws_autoscaling_policy" "this" {
+  name = "cpu_based_autoscaling_policy"
+
   policy_type = "TargetTrackingScaling"
   autoscaling_group_name = aws_autoscaling_group.this.name
 
