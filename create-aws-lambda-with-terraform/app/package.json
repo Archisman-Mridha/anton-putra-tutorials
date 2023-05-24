@@ -1,0 +1,12 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Source code for the demo AWS Lambda function",
+  "main": "main.js",
+  "keywords": [],
+  "author": "Archisman Mridha",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1383.0"
+  }
+}

@@ -1,5 +1,5 @@
 # Terraform
-.terraform
+.terraform/
 .terraform.lock.hcl
 .terraform.tfstate.lock.info
 terraform.tfstate
@@ -12,3 +12,6 @@ variables.auto.pkrvars.hcl
 # Generated
 output.txt
 outputs/
+
+# Javascript
+node_modules/
